@@ -1,5 +1,6 @@
 import { arrayProp, modelOptions, prop, Ref } from '@typegoose/typegoose';
 import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
+import { WechatGroupMember } from '@libs/db/models/wetool/wechatGroupMember.model';
 
 @modelOptions({
   schemaOptions: {
@@ -9,20 +10,20 @@ import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-prop
   },
 })
 export class WechatGroup {
-  @ApiModelProperty({ description: '角色名称', example: '管理员' })
+  @ApiModelProperty({ description: '群名称', example: '相亲相爱一家人' })
   @prop()
   groupName: string;
 
-  @ApiModelProperty({ description: '角色属性', example: 'admin' })
+  @ApiModelProperty({ description: '群成员数量', example: '10' })
   @prop({
     default: 0
   })
   groupNum: number;
 
   @arrayProp({
-    ref: 'Permission',
+    ref: 'WechatGroupMember',
     localField: '_id',
-    foreignField: 'role',
+    foreignField: 'wechatgroup',
   })
-  systemUsers: Ref<We>[];
+  wechatGroupMember: Ref<WechatGroupMember>[];
 }

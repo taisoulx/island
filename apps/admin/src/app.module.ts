@@ -9,10 +9,13 @@ import { PermissionController } from './permission/permission.controller';
 import { PermissionModule } from './permission/permission.module';
 import { ActionModule } from './action/action.module';
 import { AuthModule } from './auth/auth.module';
+import { WetoolController } from './wetool/wetool.controller';
+import { WetoolModule } from './wetool/wetool.module';
+import { WechatygroupmemberModule } from './wechatygroupmember/wechatygroupmember.module';
 
 @Module({
-  imports: [CommonModule, SystemModule, RoleModule, PermissionModule, ActionModule, AuthModule],
-  controllers: [AppController, RoleController, PermissionController ],
+  imports: [CommonModule, SystemModule, RoleModule, PermissionModule, ActionModule, AuthModule, WetoolModule, WechatygroupmemberModule],
+  controllers: [AppController, RoleController, PermissionController, WetoolController ],
   providers: [AppService],
 })
 export class AppModule {}

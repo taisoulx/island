@@ -5,12 +5,16 @@ import { SystemUser } from '@libs/db/models/system/systemUser.model';
 import { Role } from '@libs/db/models/system/role.model';
 import { Permission } from '@libs/db/models/system/permission.model';
 import { Action } from '@libs/db/models/system/action.model';
+import { WechatGroup } from '@libs/db/models/wetool/wechatGroup.model';
+import { WechatGroupMember } from '@libs/db/models/wetool/wechatGroupMember.model';
 
 const models = TypegooseModule.forFeature([
   SystemUser,
   Role,
   Permission,
-  Action
+  Action,
+  WechatGroup,
+  WechatGroupMember
 ])
 
 @Global()
